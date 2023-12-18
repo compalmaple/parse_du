@@ -187,18 +187,10 @@
             var parsedResults = output; // Assuming output contains the parsed results
             document.getElementById('output').innerHTML = parsedResults;
 
-            // Send parsed results to the specified email address
-            sendEmail(parsedResults);
-
             return output;
         }
 
-        function sendEmail(parsedResults) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "https://raw.githubusercontent.com/compalmaple/parse_du/main/send_email.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.send("parsedResults=" + encodeURIComponent(parsedResults));
-        }
+
     </script>
 </head>
 
@@ -206,8 +198,7 @@
     <h2>Parse du_stats_XXX.txt Throughput, BLER and MCS</h2>
 
     <ul>
-        <li><strong>Please paste the whole du_state_xxx.txt in the table below. And Click “Parse Txt”to obtain
-                Throughput, BLER and MCS. </strong>
+        <li><strong>Please paste the whole "du_stats_XXX.txt" in the table below. And Click “Parse Txt” to obtain Throughput, BLER and MCS. </strong>
             <ul>
                 <li>formula 1: DL-BLER = DL-RETX / (DL-RETX + DL-TX)</li>
                 <li>formula 2: UL-BLER = UL-CRC-FAIL / (UL-CRC-SUCC + UL-CRC-FAIL)</li>
