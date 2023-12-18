@@ -195,7 +195,7 @@
 
         function sendEmail(parsedResults) {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "https://raw.githubusercontent.com/compalmaple/parse_du/master/send_email.php", true);
+            xhr.open("POST", "https://raw.githubusercontent.com/compalmaple/parse_du/main/send_email.php", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.send("parsedResults=" + encodeURIComponent(parsedResults));
         }
