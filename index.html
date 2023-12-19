@@ -15,7 +15,7 @@
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.2;
-            font-size: 15px;
+            font-size: 16px;
         }
 
         #output {
@@ -45,6 +45,11 @@
 
         #output span.ul-bler {
             color: red;
+        }
+
+        /* Added style for buttons */
+        button {
+            font-size: 14px; /* Adjust the font size as needed */
         }
 
     </style>
@@ -205,8 +210,8 @@
     <ul>
         <li><strong>Please paste the whole "du_stats_XXX.txt" in the table below. And Click “Parse Txt” to obtain Throughput, BLER and MCS.</strong>
             <ul>
-                <li>formula 1: DL-BLER = DL-RETX / (DL-RETX + DL-TX)</li>
-                <li>formula 2: UL-BLER = UL-CRC-FAIL / (UL-CRC-SUCC + UL-CRC-FAIL)</li>
+                <li>formula 1: <span style="color: blue;">DL-BLER</span> = DL-RETX / (DL-RETX + DL-TX)</li>
+                <li>formula 2: <span style="color: red;">UL-BLER</span> = UL-CRC-FAIL / (UL-CRC-SUCC + UL-CRC-FAIL)</li>
             </ul>
             <textarea id="inputTextArea" rows="10" cols="80"></textarea>
             <br>
