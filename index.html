@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parse du_stats_XXX.txt Throughput, BLER and MCS</title>
+    <title>[Maple_Tool]Parse du_stats_XXX.txt Throughput, BLER and MCS</title>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -46,6 +46,7 @@
         #output span.ul-bler {
             color: red;
         }
+
     </style>
     <script>
         function parseContent() {
@@ -86,11 +87,9 @@
 
             document.getElementById('output').innerHTML = output;
 
-            printToPDF();
 
-            function printToPDF() {
-                window.print();
-            }
+
+
 
         }
 
@@ -193,12 +192,16 @@
 
             return output;
         }
+        
+        function printToPDF() {
+            window.print();
+        }
+                
     </script>
 </head>
 
 <body>
-    <h2>Parse du_stats_XXX.txt Throughput, BLER and MCS</h2>
-
+    <h2> [Maple_Tool] Parse du_stats_XXX.txt Throughput, BLER and MCS</h2>
     <ul>
         <li><strong>Please paste the whole "du_stats_XXX.txt" in the table below. And Click “Parse Txt” to obtain Throughput, BLER and MCS.</strong>
             <ul>
@@ -208,11 +211,10 @@
             <textarea id="inputTextArea" rows="10" cols="80"></textarea>
             <br>
             <button onclick="parseContent()">Parse Txt</button>
+            <button onclick="printToPDF()">Print To PDF</button>
             <pre id="output"></pre>
         </li>
     </ul>
 
-
 </body>
-
 </html>
