@@ -101,19 +101,36 @@
             var dlTpt = values[5].padEnd(8);
             var ulTpt = values[7].padEnd(8);
 
-            output += "<span class='ue-id'>UE-ID=" + ueId + "</span><span class='dl-tpt'>DL-TPT=" + dlTpt +
-                "</span>  <span class='ul-tpt'>UL-TPT=" + ulTpt + "</span>\n";
-
+            // 繼續解析下一行數字
+            while (index < lines.length) {
+                // 如果是空白行，則繼續讀取下一列
+                if (lines[index].trim() === "") {
             index++;
-            while (index < lines.length && /^\d/.test(lines[index].trim())) {
+                    continue;
+                }
+
+                // 如果遇到分隔線，則停止解析
+                if (lines[index].includes(
+                        "--------------------------------------------------------------------------------------------"
+                        )) {
+                    break;
+                }
+
+                // 如果是數字開頭的行，進行解析
+                if (/^\d/.test(lines[index].trim())) {
                 values = lines[index].trim().split(/\s+/);
                 ueId = values[0].padEnd(8);
                 dlTpt = values[5].padEnd(8);
                 ulTpt = values[7].padEnd(8);
                 output += "<span class='ue-id'>UE-ID=" + ueId + "</span><span class='dl-tpt'>DL-TPT=" + dlTpt +
                     "</span>  <span class='ul-tpt'>UL-TPT=" + ulTpt + "</span>\n";
+                }
+
+                // 繼續處理下一行
                 index++;
             }
+
+
             return output;
         }
 
